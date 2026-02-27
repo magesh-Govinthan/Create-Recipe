@@ -23,7 +23,10 @@ export const getRecipeDetail = async (req, res) => {
 export const getRecipeById = async (req,res) => {
     try {
         const recipeId = req.params.id;
+          console.log(recipeId,"recipeid",req.params);
         const recipe = await Recipe.findById(recipeId);
+      
+        
         if (!recipe) {
             return res.status(404).json({message:"Recipe Not Found!"})
         }
